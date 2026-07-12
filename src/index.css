@@ -1,0 +1,35 @@
+/* Tailwind CSS layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles for the whole app */
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased;
+    margin: 0;
+  }
+}
+
+/* A small reusable utility for hiding scrollbars (used on category rows) */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Simple fade-in animation used by the Toast and success icon */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
