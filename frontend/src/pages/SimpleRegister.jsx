@@ -18,7 +18,8 @@ function SimpleRegister() {
     setError('');
     setMessage('');
     try {
-      const res = await axios.post('/api/simple-users/register', { name, email });
+      const apiBaseUrl = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+      const res = await axios.post(`${apiBaseUrl}/api/simple-users/register`, { name, email });
       setMessage(res.data.message);
       setName('');
       setEmail('');
