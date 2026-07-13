@@ -46,10 +46,10 @@ function Restaurants() {
       {/* Top banner */}
       <div className="bg-primary">
         <div className="mx-auto max-w-7xl px-4 py-12 text-center sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl">
+          <h1 className="text-2xl font-bold text-white sm:text-3xl">
             Restaurants Near You
           </h1>
-          <p className="mt-2 text-white/80">
+          <p className="mt-2 text-sm text-white/80">
             Discover and order from the best restaurants in your city
           </p>
 
@@ -65,16 +65,16 @@ function Restaurants() {
       </div>
 
       {/* Category filter buttons */}
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap gap-3">
+      <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap gap-2">
           {filterButtons.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 active:scale-95 ${
+              className={`rounded-xl px-4 py-1.5 text-sm font-medium transition-colors ${
                 activeCategory === cat
-                  ? "bg-primary text-white shadow-soft"
-                  : "bg-white text-text shadow-soft hover:bg-primary hover:text-white"
+                  ? "bg-primary text-white"
+                  : "bg-white text-gray-600 shadow-soft hover:bg-gray-50 hover:text-primary"
               }`}
             >
               {cat}

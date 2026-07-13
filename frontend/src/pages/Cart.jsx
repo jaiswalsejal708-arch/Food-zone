@@ -42,13 +42,13 @@ function Cart({ cart, onIncrease, onDecrease, onRemove }) {
       {/* Back link */}
       <Link
         to="/restaurants"
-        className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-primary"
+        className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-gray-500 transition-colors hover:text-primary"
       >
         <FaArrowLeft /> Continue Shopping
       </Link>
 
       {/* Page title */}
-      <h1 className="mb-8 text-2xl font-bold text-text sm:text-3xl">
+      <h1 className="mb-8 text-xl font-bold text-text sm:text-2xl">
         Your Cart
       </h1>
 
@@ -85,7 +85,7 @@ function Cart({ cart, onIncrease, onDecrease, onRemove }) {
           {/* Proceed to checkout button */}
           <button
             onClick={() => navigate("/checkout", { state: { total, discount } })}
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-primary py-3 font-semibold text-white shadow-soft transition-all duration-300 hover:bg-[#c42f3b] hover:shadow-hover active:scale-95"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 text-sm font-semibold text-white transition-colors hover:bg-[#c42f3b]"
           >
             <FaShoppingBag /> Proceed to Checkout
           </button>
@@ -93,7 +93,7 @@ function Cart({ cart, onIncrease, onDecrease, onRemove }) {
           {/* Continue shopping link */}
           <Link
             to="/restaurants"
-            className="block w-full rounded-full border-2 border-primary py-3 text-center font-medium text-primary transition hover:bg-primary hover:text-white"
+            className="block w-full rounded-xl border border-primary py-3 text-center text-sm font-medium text-primary bg-white transition-colors hover:bg-primary hover:text-white"
           >
             Continue Shopping
           </Link>

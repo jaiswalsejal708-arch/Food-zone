@@ -10,12 +10,12 @@ import QuantityButton from "./QuantityButton";
 // - onRemove: function to remove the item
 function CartItem({ item, onIncrease, onDecrease, onRemove }) {
   return (
-    <div className="flex gap-4 rounded-2xl bg-white p-4 shadow-soft">
+    <div className="flex gap-4 rounded-xl bg-white p-4 shadow-soft">
       {/* Food image */}
       <img
         src={item.image}
         alt={item.name}
-        className="h-20 w-20 shrink-0 rounded-xl object-cover sm:h-24 sm:w-24"
+        className="h-20 w-20 shrink-0 rounded-xl object-cover"
       />
 
       {/* Details */}
@@ -23,25 +23,25 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
         {/* Veg / Non-veg badge + name */}
         <div className="flex items-center gap-2">
           {item.veg ? (
-            <FaLeaf className="text-green-500 text-sm" />
+            <FaLeaf className="text-green-500 text-xs" />
           ) : (
-            <FaDrumstickBite className="text-primary text-sm" />
+            <FaDrumstickBite className="text-primary text-xs" />
           )}
-          <h3 className="font-semibold text-text">{item.name}</h3>
+          <h3 className="text-sm font-semibold text-text">{item.name}</h3>
         </div>
 
         {/* Restaurant name */}
-        <p className="text-sm text-gray-500">{item.restaurantName}</p>
+        <p className="text-xs text-gray-500">{item.restaurantName}</p>
 
         {/* Rating */}
         <span className="mt-1 flex items-center gap-1 text-xs text-gray-500">
-          <FaStar className="text-accent" /> {item.rating}
+          <FaStar className="text-amber-400" /> {item.rating}
         </span>
 
         {/* Price + controls (bottom row) */}
         <div className="mt-auto flex items-center justify-between pt-3">
           {/* Price */}
-          <span className="font-semibold text-text">
+          <span className="text-sm font-bold text-text">
             ₹{item.price * item.quantity}
           </span>
 
@@ -54,7 +54,7 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
             />
             <button
               onClick={onRemove}
-              className="text-gray-400 transition hover:text-primary active:scale-90"
+              className="text-gray-400 transition-colors hover:text-primary"
               aria-label="Remove item"
             >
               <FaTrashAlt />

@@ -24,10 +24,10 @@ function Contact() {
       {/* Banner */}
       <div className="bg-primary py-12 text-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl">
+          <h1 className="text-2xl font-bold text-white sm:text-3xl">
             Get in Touch
           </h1>
-          <p className="mt-2 text-white/80">
+          <p className="mt-2 text-xs text-white/80">
             We'd love to hear from you. Send us a message!
           </p>
         </div>
@@ -36,12 +36,12 @@ function Contact() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2">
           {/* Contact form */}
-          <div className="rounded-2xl bg-white p-8 shadow-card">
-            <h2 className="text-xl font-bold text-text">Send a Message</h2>
-            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+          <div className="rounded-xl bg-white p-8 shadow-soft border border-gray-100">
+            <h2 className="text-base font-bold text-text mb-6">Send a Message</h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name */}
               <div>
-                <label className="mb-1 block text-sm font-medium text-text">
+                <label className="mb-1 block text-xs font-semibold text-text">
                   Name
                 </label>
                 <input
@@ -50,13 +50,13 @@ function Contact() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name"
-                  className="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary"
+                  className="input-field"
                 />
               </div>
 
               {/* Email */}
               <div>
-                <label className="mb-1 block text-sm font-medium text-text">
+                <label className="mb-1 block text-xs font-semibold text-text">
                   Email
                 </label>
                 <input
@@ -65,13 +65,13 @@ function Contact() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary"
+                  className="input-field"
                 />
               </div>
 
               {/* Message */}
               <div>
-                <label className="mb-1 block text-sm font-medium text-text">
+                <label className="mb-1 block text-xs font-semibold text-text">
                   Message
                 </label>
                 <textarea
@@ -80,14 +80,14 @@ function Contact() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Write your message here..."
-                  className="w-full resize-none rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary"
+                  className="input-field resize-none"
                 ></textarea>
               </div>
 
               {/* Submit button */}
               <button
                 type="submit"
-                className="w-full rounded-xl bg-primary py-3 font-semibold text-white transition-all duration-300 hover:bg-[#c42f3b] active:scale-95"
+                className="w-full rounded-xl bg-primary py-3 text-sm font-semibold text-white transition-colors hover:bg-[#c42f3b]"
               >
                 Submit
               </button>
@@ -97,26 +97,26 @@ function Contact() {
           {/* Contact info + map placeholder */}
           <div className="space-y-6">
             {/* Contact details */}
-            <div className="rounded-2xl bg-white p-8 shadow-card">
-              <h2 className="text-xl font-bold text-text">Contact Details</h2>
-              <ul className="mt-4 space-y-4 text-gray-600">
+            <div className="rounded-xl bg-white p-8 shadow-soft border border-gray-100">
+              <h2 className="text-base font-bold text-text mb-4">Contact Details</h2>
+              <ul className="space-y-4 text-xs text-gray-600">
                 <li className="flex items-center gap-3">
-                  <FaMapMarkerAlt className="text-primary text-xl" />
+                  <FaMapMarkerAlt className="text-primary text-base shrink-0" />
                   Connaught Place, New Delhi, India
                 </li>
                 <li className="flex items-center gap-3">
-                  <FaPhone className="text-primary text-xl" />
+                  <FaPhone className="text-primary text-base shrink-0" />
                   +91 98765 43210
                 </li>
                 <li className="flex items-center gap-3">
-                  <FaEnvelope className="text-primary text-xl" />
+                  <FaEnvelope className="text-primary text-base shrink-0" />
                   hello@foodie.com
                 </li>
               </ul>
             </div>
 
             {/* Google Map placeholder */}
-            <div className="overflow-hidden rounded-2xl shadow-card">
+            <div className="overflow-hidden rounded-xl shadow-soft border border-gray-100">
               <iframe
                 title="Google Map"
                 src="https://www.google.com/maps?q=Connaught+Place+New+Delhi&output=embed"

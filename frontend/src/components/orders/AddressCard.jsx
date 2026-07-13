@@ -14,34 +14,34 @@ function AddressCard({ address, selected, onSelect }) {
   return (
     <button
       onClick={onSelect}
-      className={`flex w-full flex-col gap-2 rounded-2xl border-2 p-5 text-left transition-all duration-300 ${
+      className={`flex w-full flex-col gap-2 rounded-xl border-2 p-5 text-left transition-colors duration-200 ${
         selected
-          ? "border-primary bg-primary/5 shadow-soft"
-          : "border-gray-200 bg-white hover:border-primary/40"
+          ? "border-primary bg-primary/5"
+          : "border-gray-200 bg-white hover:border-gray-300"
       }`}
     >
       {/* Label + icon */}
       <div className="flex items-center gap-2">
         <div
-          className={`flex h-9 w-9 items-center justify-center rounded-full ${
+          className={`flex h-8 w-8 items-center justify-center rounded-full ${
             selected ? "bg-primary text-white" : "bg-background text-primary"
           }`}
         >
-          <Icon className="text-sm" />
+          <Icon className="text-xs" />
         </div>
-        <span className="font-semibold text-text">{address.label}</span>
+        <span className="text-sm font-semibold text-text">{address.label}</span>
       </div>
 
       {/* Name + address line */}
-      <div>
-        <p className="text-sm text-text">{address.name}</p>
-        <p className="text-sm text-gray-500">{address.line}</p>
-        <p className="text-sm text-gray-500">{address.city}</p>
+      <div className="text-xs">
+        <p className="font-medium text-text">{address.name}</p>
+        <p className="mt-0.5 text-gray-500">{address.line}</p>
+        <p className="text-gray-500">{address.city}</p>
       </div>
 
       {/* Phone */}
-      <p className="flex items-center gap-1 text-sm text-gray-500">
-        <FaPhone className="text-xs text-primary" /> {address.phone}
+      <p className="flex items-center gap-1 text-xs text-gray-500">
+        <FaPhone className="text-[10px] text-primary" /> {address.phone}
       </p>
     </button>
   );

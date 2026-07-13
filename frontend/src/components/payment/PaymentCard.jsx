@@ -1,4 +1,4 @@
-import { FaCreditCard, FaQrcode } from "react-icons/fa";
+import { FaCreditCard } from "react-icons/fa";
 
 // A styled card that visually represents a credit/debit card.
 // Used at the top of the card payment form.
@@ -12,29 +12,29 @@ function PaymentCard({ cardNumber, cardName }) {
   const groups = display.match(/.{1,4}/g) || [];
 
   return (
-    <div className="relative h-48 w-full max-w-sm overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#a02028] p-6 text-white shadow-card">
+    <div className="relative h-44 w-full max-w-xs overflow-hidden rounded-xl bg-gradient-to-br from-primary to-[#b02028] p-5 text-white shadow-soft">
       {/* Decorative circles */}
-      <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10"></div>
-      <div className="absolute -bottom-12 -left-8 h-32 w-32 rounded-full bg-white/10"></div>
+      <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/10"></div>
+      <div className="absolute -bottom-12 -left-8 h-28 w-28 rounded-full bg-white/10"></div>
 
       <div className="relative flex h-full flex-col justify-between">
         {/* Top row: chip + icon */}
         <div className="flex items-center justify-between">
-          <div className="h-8 w-10 rounded-md bg-accent/80"></div>
-          <FaCreditCard className="text-2xl text-white/80" />
+          <div className="h-6 w-8 rounded bg-accent/80"></div>
+          <FaCreditCard className="text-xl text-white/80" />
         </div>
 
         {/* Card number */}
-        <div className="tracking-widest">
-          <p className="text-lg font-semibold sm:text-xl">
+        <div className="tracking-widest mt-2">
+          <p className="text-base font-semibold sm:text-lg">
             {groups.join(" ")}
           </p>
         </div>
 
         {/* Bottom row: name */}
-        <div>
-          <p className="text-xs uppercase text-white/60">Card Holder</p>
-          <p className="font-medium">{cardName || "YOUR NAME"}</p>
+        <div className="mt-auto">
+          <p className="text-[9px] uppercase text-white/60">Card Holder</p>
+          <p className="text-xs font-medium truncate uppercase">{cardName || "YOUR NAME"}</p>
         </div>
       </div>
     </div>

@@ -8,8 +8,8 @@ import { FaCheck, FaClock } from "react-icons/fa";
 // - currentStep: the index (1-based) of the current step
 function OrderTimeline({ steps, currentStep }) {
   return (
-    <div className="rounded-2xl bg-white p-6 shadow-card">
-      <h3 className="mb-6 text-lg font-bold text-text">Order Tracking</h3>
+    <div className="rounded-xl bg-white p-6 shadow-soft border border-gray-100">
+      <h3 className="mb-6 text-sm font-bold text-text">Order Tracking</h3>
 
       {/* Vertical timeline */}
       <div className="space-y-0">
@@ -25,18 +25,18 @@ function OrderTimeline({ steps, currentStep }) {
               {/* Circle + connecting line */}
               <div className="flex flex-col items-center">
                 <div
-                  className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold transition-all duration-300 ${
+                  className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold transition-all duration-300 ${
                     isDone
                       ? "bg-green-500 text-white"
                       : isCurrent
-                      ? "bg-primary text-white scale-110 shadow-soft"
+                      ? "bg-primary text-white shadow-soft"
                       : "bg-gray-100 text-gray-400"
                   }`}
                 >
                   {isDone ? (
-                    <FaCheck className="text-xs" />
+                    <FaCheck className="text-[10px]" />
                   ) : isCurrent ? (
-                    <FaClock className="text-xs" />
+                    <FaClock className="text-[10px]" />
                   ) : (
                     stepNumber
                   )}
@@ -48,15 +48,15 @@ function OrderTimeline({ steps, currentStep }) {
                     className={`w-0.5 flex-1 ${
                       isDone ? "bg-green-500" : "bg-gray-200"
                     }`}
-                    style={{ minHeight: "32px" }}
+                    style={{ minHeight: "28px" }}
                   ></div>
                 )}
               </div>
 
               {/* Step label */}
-              <div className={`pb-6 ${isLast ? "pb-0" : ""}`}>
+              <div className={`pb-5 ${isLast ? "pb-0" : ""}`}>
                 <p
-                  className={`font-medium ${
+                  className={`text-xs font-medium ${
                     isCurrent
                       ? "text-primary"
                       : isDone
@@ -67,7 +67,7 @@ function OrderTimeline({ steps, currentStep }) {
                   {step}
                 </p>
                 {isCurrent && (
-                  <p className="text-xs text-gray-500">In progress...</p>
+                  <p className="text-[10px] text-gray-500">In progress...</p>
                 )}
               </div>
             </div>

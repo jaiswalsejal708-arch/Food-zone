@@ -13,34 +13,34 @@ function OrderSummary({ subtotal, deliveryFee, tax, discount = 0, total }) {
   const format = (amount) => `₹${amount}`;
 
   return (
-    <div className="rounded-2xl bg-white p-6 shadow-card">
-      <h3 className="text-lg font-bold text-text">Order Summary</h3>
+    <div className="rounded-xl bg-white p-6 shadow-soft border border-gray-100">
+      <h3 className="text-base font-bold text-text">Order Summary</h3>
 
       {/* Bill rows */}
-      <div className="mt-4 space-y-3 text-sm">
+      <div className="mt-4 space-y-3 text-xs">
         {/* Subtotal */}
         <div className="flex justify-between text-gray-600">
           <span>Subtotal</span>
-          <span className="font-medium text-text">{format(subtotal)}</span>
+          <span className="font-semibold text-text">{format(subtotal)}</span>
         </div>
 
         {/* Delivery fee */}
         <div className="flex justify-between text-gray-600">
           <span>Delivery Fee</span>
-          <span className="font-medium text-text">{format(deliveryFee)}</span>
+          <span className="font-semibold text-text">{format(deliveryFee)}</span>
         </div>
 
         {/* Taxes */}
         <div className="flex justify-between text-gray-600">
           <span>Taxes & Charges</span>
-          <span className="font-medium text-text">{format(tax)}</span>
+          <span className="font-semibold text-text">{format(tax)}</span>
         </div>
 
         {/* Discount (only show if there is one) */}
         {discount > 0 && (
-          <div className="flex justify-between text-green-600">
+          <div className="flex justify-between text-green-600 font-medium">
             <span>Discount</span>
-            <span className="font-medium">- {format(discount)}</span>
+            <span>- {format(discount)}</span>
           </div>
         )}
       </div>
@@ -49,9 +49,9 @@ function OrderSummary({ subtotal, deliveryFee, tax, discount = 0, total }) {
       <div className="my-4 border-t border-gray-100"></div>
 
       {/* Grand total */}
-      <div className="flex justify-between">
-        <span className="font-semibold text-text">Grand Total</span>
-        <span className="text-lg font-bold text-primary">{format(total)}</span>
+      <div className="flex justify-between items-center">
+        <span className="text-sm font-semibold text-text">Grand Total</span>
+        <span className="text-base font-bold text-primary">{format(total)}</span>
       </div>
     </div>
   );

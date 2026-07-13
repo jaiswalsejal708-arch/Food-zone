@@ -1,4 +1,4 @@
-import { FaSearch, FaArrowRight } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
@@ -18,18 +18,18 @@ function Hero({ search, onSearchChange }) {
           alt="Food spread"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/55"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
       {/* Content on top of the background */}
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-24 text-center sm:px-6 lg:px-8 lg:py-32">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
         <h1 className="text-3xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
           Discover the Best Food
           <br />
           <span className="text-accent">Around You</span>
         </h1>
 
-        <p className="mt-4 max-w-xl text-base text-gray-200 sm:text-lg">
+        <p className="mt-4 max-w-xl text-sm text-gray-200 sm:text-base">
           Order from your favorite restaurants and get it delivered hot and
           fresh at your doorstep.
         </p>
@@ -46,7 +46,7 @@ function Hero({ search, onSearchChange }) {
         {/* Call to action button */}
         <Link
           to="/restaurants"
-          className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 font-medium text-white shadow-soft transition-all duration-300 hover:bg-[#c42f3b] hover:shadow-hover active:scale-95"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-[#c42f3b]"
         >
           Explore Restaurants
           <FaArrowRight />

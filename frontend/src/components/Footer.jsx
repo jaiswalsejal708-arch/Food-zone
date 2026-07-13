@@ -98,14 +98,9 @@ function Footer() {
           <p>&copy; {year} {APP_NAME}. All rights reserved.</p>
           <p className="mt-2">
             Designed and developed by{" "}
-            <a
-              href="https://www.linkedin.com/in/abhinav-srivastava-96a760326"
-              target="_blank"
-              rel="noreferrer"
-              className="text-primary hover:text-accent font-medium transition-all"
-            >
-              Abhinav Srivastava
-            </a>
+            <span className="text-primary font-medium">
+              Sejal Jaiswal
+            </span>
           </p>
         </div>
       </div>

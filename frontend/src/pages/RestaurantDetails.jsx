@@ -125,7 +125,7 @@ function RestaurantDetails({ addToCart }) {
   return (
     <div>
       {/* Banner with restaurant image */}
-      <div className="relative h-72 sm:h-96">
+      <div className="relative h-64 sm:h-80">
         <img
           src={restaurant.image}
           alt={restaurant.name}
@@ -136,24 +136,24 @@ function RestaurantDetails({ addToCart }) {
         {/* Back button */}
         <button
           onClick={() => navigate(-1)}
-          className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-text shadow-soft transition hover:bg-white"
+          className="absolute left-4 top-4 flex items-center gap-2 rounded-xl bg-white/90 px-3 py-1.5 text-sm font-medium text-text shadow-soft transition-colors hover:bg-white"
         >
           <FaArrowLeft /> Back
         </button>
 
         {/* Name + rating over the image */}
-        <div className="absolute bottom-0 left-0 p-6 text-white sm:p-8">
-          <h1 className="text-3xl font-bold sm:text-4xl">{restaurant.name}</h1>
-          <p className="mt-1 text-gray-200">{restaurant.cuisine}</p>
-          <div className="mt-3 flex flex-wrap items-center gap-4 text-sm">
-            <span className="flex items-center gap-1 rounded-md bg-accent/40 px-2 py-1 font-semibold">
-              <FaStar className="text-primary" /> {restaurant.rating}
+        <div className="absolute bottom-0 left-0 p-6 text-white">
+          <h1 className="text-2xl font-bold sm:text-3xl">{restaurant.name}</h1>
+          <p className="mt-0.5 text-sm text-gray-200">{restaurant.cuisine}</p>
+          <div className="mt-3 flex flex-wrap items-center gap-3 text-xs">
+            <span className="flex items-center gap-1 rounded-md bg-amber-400/30 px-2 py-1 font-semibold text-white">
+              <FaStar className="text-amber-300" /> {restaurant.rating}
             </span>
             <span className="flex items-center gap-1">
-              <FaClock className="text-accent" /> {restaurant.deliveryTime}
+              <FaClock /> {restaurant.deliveryTime}
             </span>
             <span className="flex items-center gap-1">
-              <FaMapMarkerAlt className="text-accent" /> {restaurant.location}
+              <FaMapMarkerAlt /> {restaurant.location}
             </span>
             <span>₹{restaurant.priceForTwo} for two</span>
           </div>
@@ -161,16 +161,16 @@ function RestaurantDetails({ addToCart }) {
       </div>
 
       {/* Info bar */}
-      <div className="border-b bg-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-3">
+      <div className="border-b border-gray-100 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap gap-2">
             {restaurant.offer && (
-              <span className="rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                 {restaurant.offer}
               </span>
             )}
             <span
-              className={`rounded-full px-4 py-1.5 text-sm font-semibold ${
+              className={`rounded-full px-3 py-1 text-xs font-semibold ${
                 restaurant.isOpen
                   ? "bg-green-100 text-green-600"
                   : "bg-gray-100 text-gray-500"
@@ -187,12 +187,12 @@ function RestaurantDetails({ addToCart }) {
 
       {/* Menu section */}
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <h2 className="mb-6 text-2xl font-bold text-text">Menu</h2>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <h2 className="mb-6 text-xl font-bold text-text">Menu</h2>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {menu.map((item) => (
             <div
               key={item.id}
-              className="flex gap-4 rounded-2xl bg-white p-4 shadow-soft transition hover:shadow-card"
+              className="flex gap-4 rounded-xl bg-white p-4 shadow-soft transition-shadow hover:shadow-card"
             >
               {/* Food image */}
               <img
@@ -206,47 +206,47 @@ function RestaurantDetails({ addToCart }) {
                 {/* Veg / non-veg badge + name */}
                 <div className="flex items-center gap-2">
                   {item.veg ? (
-                    <FaLeaf className="text-green-500 text-sm" />
+                    <FaLeaf className="text-green-500 text-xs" />
                   ) : (
-                    <FaDrumstickBite className="text-primary text-sm" />
+                    <FaDrumstickBite className="text-primary text-xs" />
                   )}
-                  <h3 className="font-semibold text-text">{item.name}</h3>
+                  <h3 className="text-sm font-semibold text-text">{item.name}</h3>
                 </div>
 
                 {/* Rating */}
                 <span className="mt-1 flex items-center gap-1 text-xs text-gray-500">
-                  <FaStar className="text-accent" /> {item.rating}
+                  <FaStar className="text-amber-500" /> {item.rating}
                 </span>
 
                 {/* Description */}
-                <p className="mt-1 text-sm text-gray-500">
+                <p className="mt-1 text-xs text-gray-500 line-clamp-2">
                   {item.description}
                 </p>
 
                 {/* Price + quantity + add to cart */}
                 <div className="mt-auto flex items-center justify-between pt-3">
-                  <span className="font-semibold text-primary">
+                  <span className="text-sm font-bold text-primary">
                     ₹{item.price}
                   </span>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2">
                     {/* Quantity selector (only shows when quantity > 0) */}
                     {getQty(item.id) > 0 && (
-                      <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-2 py-1">
+                      <div className="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-2 py-1">
                         <button
                           onClick={() => decreaseQty(item.id)}
-                          className="flex h-6 w-6 items-center justify-center rounded-full text-primary transition hover:bg-primary/10 active:scale-90"
+                          className="flex h-5 w-5 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary/10"
                         >
-                          <FaMinus className="text-[10px]" />
+                          <FaMinus className="text-[9px]" />
                         </button>
-                        <span className="min-w-[16px] text-center text-sm font-semibold">
+                        <span className="min-w-[16px] text-center text-xs font-semibold">
                           {getQty(item.id)}
                         </span>
                         <button
                           onClick={() => increaseQty(item.id)}
-                          className="flex h-6 w-6 items-center justify-center rounded-full text-primary transition hover:bg-primary/10 active:scale-90"
+                          className="flex h-5 w-5 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary/10"
                         >
-                          <FaPlus className="text-[10px]" />
+                          <FaPlus className="text-[9px]" />
                         </button>
                       </div>
                     )}
@@ -254,11 +254,11 @@ function RestaurantDetails({ addToCart }) {
                     {/* Add to cart button */}
                     <button
                       onClick={() => handleAddToCart(item)}
-                      className="rounded-lg bg-primary px-4 py-1.5 text-sm font-medium text-white transition hover:bg-[#c42f3b] active:scale-95"
+                      className="rounded-xl bg-primary px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-[#c42f3b]"
                     >
                       {getQty(item.id) > 0
                         ? `Add ${getQty(item.id)}`
-                        : "Add to Cart"}
+                        : "Add"}
                     </button>
                   </div>
                 </div>
@@ -271,7 +271,7 @@ function RestaurantDetails({ addToCart }) {
       {/* Reviews section */}
       <section className="bg-white py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-6 text-2xl font-bold text-text">Reviews</h2>
+          <h2 className="mb-6 text-xl font-bold text-text">Reviews</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {reviewList.map((review) => (
               <div key={review.id} className="rounded-xl bg-background p-5 shadow-soft">
@@ -279,10 +279,10 @@ function RestaurantDetails({ addToCart }) {
                   <img
                     src={review.avatar}
                     alt={review.name}
-                    className="h-10 w-10 rounded-full object-cover"
+                    className="h-9 w-9 rounded-full object-cover"
                   />
                   <div>
-                    <p className="font-semibold text-text">{review.name}</p>
+                    <p className="text-sm font-semibold text-text">{review.name}</p>
                     <p className="text-xs text-gray-500">{review.date}</p>
                   </div>
                 </div>
@@ -292,12 +292,12 @@ function RestaurantDetails({ addToCart }) {
                     <FaStar
                       key={i}
                       className={
-                        i < review.rating ? "text-accent" : "text-gray-300"
+                        i < review.rating ? "text-amber-400" : "text-gray-200"
                       }
                     />
                   ))}
                 </div>
-                <p className="mt-2 text-sm text-gray-600">{review.text}</p>
+                <p className="mt-2 text-xs text-gray-600">{review.text}</p>
               </div>
             ))}
           </div>
@@ -307,7 +307,7 @@ function RestaurantDetails({ addToCart }) {
       {/* Similar restaurants */}
       {similar.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <h2 className="mb-6 text-2xl font-bold text-text">
+          <h2 className="mb-6 text-xl font-bold text-text">
             Similar Restaurants
           </h2>
           <RestaurantGrid restaurants={similar} />

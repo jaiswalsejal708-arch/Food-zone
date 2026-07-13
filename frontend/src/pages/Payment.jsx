@@ -45,19 +45,19 @@ function Payment({ cart, onClearCart }) {
       {/* Back link */}
       <button
         onClick={() => navigate(-1)}
-        className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-primary"
+        className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-gray-500 transition-colors hover:text-primary"
       >
         <FaArrowLeft /> Back to Checkout
       </button>
 
-      <h1 className="mb-8 text-2xl font-bold text-text sm:text-3xl">
+      <h1 className="mb-8 text-xl font-bold text-text sm:text-2xl">
         Payment
       </h1>
 
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Left: payment method list */}
         <div>
-          <h2 className="mb-4 text-lg font-bold text-text">
+          <h2 className="mb-4 text-sm font-bold text-text">
             Select Payment Method
           </h2>
           <div className="grid gap-3 sm:grid-cols-2">

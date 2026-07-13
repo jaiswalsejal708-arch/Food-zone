@@ -46,7 +46,7 @@ export const paymentMethods = [
   },
   {
     id: "wallet",
-    name: "Foodie Wallet",
+    name: "Food Zone Wallet",
     icon: "FaWallet",
     description: "Pay from your wallet balance",
   },

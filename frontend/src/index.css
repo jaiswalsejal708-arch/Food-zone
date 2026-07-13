@@ -6,8 +6,40 @@
 /* Base styles for the whole app */
 @layer base {
   body {
-    @apply bg-background text-text font-sans antialiased;
+    @apply bg-background text-text font-sans antialiased leading-relaxed;
     margin: 0;
+  }
+
+  /* Smooth focus outlines for all interactive elements */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary/30 ring-offset-1;
+  }
+}
+
+/* Reusable component utilities — prevents repetitive class strings */
+@layer components {
+  /* Primary filled button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#c42f3b] disabled:opacity-60;
+  }
+
+  /* Outlined button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-primary px-5 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white;
+  }
+
+  /* Standard text input / textarea */
+  .input-field {
+    @apply w-full rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-sm text-text placeholder-gray-400 outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/10;
+  }
+
+  /* Section heading pattern used across Home */
+  .section-title {
+    @apply text-2xl font-bold text-text sm:text-3xl;
+  }
+
+  .section-subtitle {
+    @apply mt-1 text-sm text-gray-500;
   }
 }
 

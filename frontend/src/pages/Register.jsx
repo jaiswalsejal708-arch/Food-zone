@@ -66,17 +66,17 @@ function Register() {
 
   return (
     <div className="flex min-h-[70vh] items-center justify-center bg-background px-4 py-12">
-      <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-card">
+      <div className="w-full max-w-sm rounded-xl bg-white p-8 shadow-soft border border-gray-100">
         {/* Logo + heading */}
         <div className="mb-6 text-center">
-          <FaUtensils className="mx-auto text-3xl text-primary" />
-          <h1 className="mt-2 text-2xl font-bold text-text">Create Account</h1>
-          <p className="text-sm text-gray-500">Join Foodie today</p>
+          <FaUtensils className="mx-auto text-2xl text-primary" />
+          <h1 className="mt-2 text-xl font-bold text-text">Create Account</h1>
+          <p className="text-xs text-gray-500">Join Food Zone today</p>
         </div>
 
         {/* Error message */}
         {error && (
-          <div className="mb-4 rounded-lg bg-red-50 px-4 py-3 text-center text-sm text-primary">
+          <div className="mb-4 rounded-xl bg-red-50 px-4 py-3 text-center text-xs text-primary border border-red-100">
             {error}
           </div>
         )}
@@ -85,79 +85,79 @@ function Register() {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name field */}
           <div>
-            <label className="mb-1 block text-sm font-medium text-text">
+            <label className="mb-1 block text-xs font-semibold text-text">
               Full Name
             </label>
-            <div className="flex items-center gap-2 rounded-xl border border-gray-200 px-3 py-2.5 focus-within:border-primary">
-              <FaUser className="text-gray-400" />
+            <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2.5 transition-colors focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10">
+              <FaUser className="text-gray-400 text-sm" />
               <input
                 type="text"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your full name"
-                className="w-full bg-transparent text-sm outline-none"
+                className="w-full bg-transparent text-sm outline-none text-text placeholder-gray-400"
               />
             </div>
           </div>
 
           {/* Email field */}
           <div>
-            <label className="mb-1 block text-sm font-medium text-text">
+            <label className="mb-1 block text-xs font-semibold text-text">
               Email
             </label>
-            <div className="flex items-center gap-2 rounded-xl border border-gray-200 px-3 py-2.5 focus-within:border-primary">
-              <FaEnvelope className="text-gray-400" />
+            <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2.5 transition-colors focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10">
+              <FaEnvelope className="text-gray-400 text-sm" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="w-full bg-transparent text-sm outline-none"
+                className="w-full bg-transparent text-sm outline-none text-text placeholder-gray-400"
               />
             </div>
           </div>
 
           {/* Password field */}
           <div>
-            <label className="mb-1 block text-sm font-medium text-text">
+            <label className="mb-1 block text-xs font-semibold text-text">
               Password
             </label>
-            <div className="flex items-center gap-2 rounded-xl border border-gray-200 px-3 py-2.5 focus-within:border-primary">
-              <FaLock className="text-gray-400" />
+            <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2.5 transition-colors focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10">
+              <FaLock className="text-gray-400 text-sm" />
               <input
                 type={showPassword ? "text" : "password"}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Create a password"
-                className="w-full bg-transparent text-sm outline-none"
+                className="w-full bg-transparent text-sm outline-none text-text placeholder-gray-400"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="text-gray-400 hover:text-primary"
               >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                {showPassword ? <FaEyeSlash className="text-sm" /> : <FaEye className="text-sm" />}
               </button>
             </div>
           </div>
 
           {/* Confirm password field */}
           <div>
-            <label className="mb-1 block text-sm font-medium text-text">
+            <label className="mb-1 block text-xs font-semibold text-text">
               Confirm Password
             </label>
-            <div className="flex items-center gap-2 rounded-xl border border-gray-200 px-3 py-2.5 focus-within:border-primary">
-              <FaLock className="text-gray-400" />
+            <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2.5 transition-colors focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10">
+              <FaLock className="text-gray-400 text-sm" />
               <input
                 type={showPassword ? "text" : "password"}
                 required
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
                 placeholder="Re-enter password"
-                className="w-full bg-transparent text-sm outline-none"
+                className="w-full bg-transparent text-sm outline-none text-text placeholder-gray-400"
               />
             </div>
           </div>
@@ -166,11 +166,11 @@ function Register() {
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-semibold text-white transition-all duration-300 hover:bg-[#c42f3b] active:scale-95 disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 text-sm font-semibold text-white transition-colors hover:bg-[#c42f3b] disabled:opacity-60"
           >
             {loading ? (
               <>
-                <FaSpinner className="animate-spin" /> Registering...
+                <FaSpinner className="animate-spin text-xs" /> Registering...
               </>
             ) : (
               "Register"
@@ -179,7 +179,7 @@ function Register() {
         </form>
 
         {/* Link to login page */}
-        <p className="mt-6 text-center text-sm text-gray-500">
+        <p className="mt-6 text-center text-xs text-gray-500">
           Already have an account?{" "}
           <Link
             to="/login"

@@ -10,7 +10,7 @@ export const NAV_LINKS = [
 ];
 
 // App name shown in the navbar and footer
-export const APP_NAME = "Foodie";
+export const APP_NAME = "Food Zone";
 
 // Social media links used in the footer
 export const SOCIAL_LINKS = [

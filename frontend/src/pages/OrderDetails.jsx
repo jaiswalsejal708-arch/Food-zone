@@ -24,10 +24,10 @@ function OrderDetails() {
   if (!order) {
     return (
       <div className="py-20 text-center">
-        <p className="text-lg text-gray-500">Order not found.</p>
+        <p className="text-sm text-gray-500">Order not found.</p>
         <Link
           to="/orders"
-          className="mt-4 inline-block rounded-full bg-primary px-6 py-3 font-medium text-white"
+          className="mt-4 inline-block rounded-xl bg-primary px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#c42f3b]"
         >
           View All Orders
         </Link>
@@ -40,7 +40,7 @@ function OrderDetails() {
       {/* Back link */}
       <button
         onClick={() => navigate(-1)}
-        className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-primary"
+        className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-gray-500 transition-colors hover:text-primary"
       >
         <FaArrowLeft /> Back to Orders
       </button>
@@ -48,17 +48,17 @@ function OrderDetails() {
       {/* Order header */}
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-text sm:text-3xl">
+          <h1 className="text-xl font-bold text-text sm:text-2xl">
             Order Details
           </h1>
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-xs text-gray-500">
             Order #{order.id} · {order.orderDate}
           </p>
         </div>
         {/* Download invoice button (UI only) */}
         <button
           onClick={() => alert("Invoice download is a UI demo only.")}
-          className="flex items-center gap-2 rounded-full border-2 border-primary px-5 py-2.5 text-sm font-medium text-primary transition hover:bg-primary hover:text-white"
+          className="flex items-center gap-2 rounded-xl border border-primary px-4 py-2 text-xs font-medium text-primary bg-white transition-colors hover:bg-primary hover:text-white"
         >
           <FaDownload /> Download Invoice
         </button>
@@ -68,34 +68,34 @@ function OrderDetails() {
         {/* Left: restaurant + items + address + timeline */}
         <div className="space-y-6 lg:col-span-2">
           {/* Restaurant info */}
-          <div className="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-card">
+          <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-soft border border-gray-100">
             <img
               src={order.restaurantImage}
               alt={order.restaurantName}
-              className="h-16 w-16 rounded-xl object-cover"
+              className="h-14 w-14 rounded-xl object-cover"
             />
             <div>
-              <h2 className="text-lg font-bold text-text">
+              <h2 className="text-sm font-bold text-text">
                 {order.restaurantName}
               </h2>
-              <p className="text-sm text-gray-500">
+              <p className="text-xs text-gray-500">
                 Delivery in {order.deliveryTime}
               </p>
             </div>
           </div>
 
           {/* Ordered items */}
-          <div className="rounded-2xl bg-white p-6 shadow-card">
-            <h3 className="mb-4 text-lg font-bold text-text">Ordered Items</h3>
+          <div className="rounded-xl bg-white p-6 shadow-soft border border-gray-100">
+            <h3 className="mb-4 text-sm font-bold text-text">Ordered Items</h3>
             <div className="space-y-3">
               {order.items.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between border-b border-gray-100 pb-3 last:border-0 last:pb-0"
+                  className="flex items-center justify-between border-b border-gray-50 pb-3 last:border-0 last:pb-0 text-xs"
                 >
                   <div>
                     <p className="font-medium text-text">{item.name}</p>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-gray-500 mt-0.5">
                       Qty: {item.quantity}
                     </p>
                   </div>
@@ -108,16 +108,16 @@ function OrderDetails() {
           </div>
 
           {/* Delivery address */}
-          <div className="rounded-2xl bg-white p-6 shadow-card">
-            <h3 className="mb-4 text-lg font-bold text-text">
+          <div className="rounded-xl bg-white p-6 shadow-soft border border-gray-100">
+            <h3 className="mb-4 text-sm font-bold text-text">
               Delivery Address
             </h3>
-            <p className="flex items-start gap-2 text-sm text-gray-600">
-              <FaMapMarkerAlt className="mt-1 text-primary" />
+            <p className="flex items-start gap-2 text-xs text-gray-600">
+              <FaMapMarkerAlt className="mt-0.5 text-primary shrink-0" />
               {order.address}
             </p>
-            <p className="mt-3 flex items-center gap-2 text-sm text-gray-600">
-              <FaPhone className="text-primary" /> {order.phone}
+            <p className="mt-3 flex items-center gap-2 text-xs text-gray-600">
+              <FaPhone className="text-primary shrink-0" /> {order.phone}
             </p>
           </div>
 
@@ -131,19 +131,19 @@ function OrderDetails() {
         {/* Right: payment + order summary */}
         <div className="space-y-6">
           {/* Payment method */}
-          <div className="rounded-2xl bg-white p-6 shadow-card">
-            <h3 className="mb-4 text-lg font-bold text-text">
+          <div className="rounded-xl bg-white p-6 shadow-soft border border-gray-100">
+            <h3 className="mb-4 text-sm font-bold text-text">
               Payment Method
             </h3>
-            <p className="flex items-center gap-2 text-sm text-gray-600">
+            <p className="flex items-center gap-2 text-xs text-gray-600">
               <FaCreditCard className="text-primary" /> {order.paymentMethod}
             </p>
           </div>
 
           {/* Bill summary */}
-          <div className="rounded-2xl bg-white p-6 shadow-card">
-            <h3 className="mb-4 text-lg font-bold text-text">Bill Summary</h3>
-            <div className="space-y-3 text-sm">
+          <div className="rounded-xl bg-white p-6 shadow-soft border border-gray-100">
+            <h3 className="mb-4 text-sm font-bold text-text">Bill Summary</h3>
+            <div className="space-y-3 text-xs">
               {/* Items total */}
               <div className="flex justify-between text-gray-600">
                 <span>Items Total</span>
@@ -159,9 +159,9 @@ function OrderDetails() {
               {/* Divider */}
               <div className="border-t border-gray-100"></div>
               {/* Total */}
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center pt-1">
                 <span className="font-semibold text-text">Total Paid</span>
-                <span className="text-lg font-bold text-primary">
+                <span className="text-base font-bold text-primary">
                   ₹{order.total}
                 </span>
               </div>

@@ -38,12 +38,12 @@ function Navbar({ cartCount, user, onLogout }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-soft">
+    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo (clicking goes to Home) */}
         <Link to="/" onClick={closeMenu} className="flex items-center gap-2">
-          <FaUtensils className="text-primary text-2xl" />
-          <span className="text-xl font-bold text-primary">{APP_NAME}</span>
+          <FaUtensils className="text-primary text-xl" />
+          <span className="text-lg font-bold text-text">{APP_NAME}</span>
         </Link>
 
         {/* Desktop nav links */}
@@ -54,7 +54,7 @@ function Navbar({ cartCount, user, onLogout }) {
                 to={link.path}
                 className={({ isActive }) =>
                   `text-sm font-medium transition-colors hover:text-primary ${
-                    isActive ? "text-primary" : "text-text"
+                    isActive ? "text-primary" : "text-gray-600"
                   }`
                 }
               >
@@ -69,7 +69,7 @@ function Navbar({ cartCount, user, onLogout }) {
                 to="/orders"
                 className={({ isActive }) =>
                   `text-sm font-medium transition-colors hover:text-primary ${
-                    isActive ? "text-primary" : "text-text"
+                    isActive ? "text-primary" : "text-gray-600"
                   }`
                 }
               >
@@ -84,7 +84,7 @@ function Navbar({ cartCount, user, onLogout }) {
           {/* Cart icon with item count badge */}
           <Link
             to="/cart"
-            className="relative rounded-full p-2 text-text transition hover:text-primary"
+            className="relative rounded-xl p-2 text-gray-600 transition-colors hover:text-primary"
             aria-label="Cart"
           >
             <FaShoppingCart className="text-xl" />
@@ -103,14 +103,14 @@ function Navbar({ cartCount, user, onLogout }) {
             <>
               <Link
                 to="/profile"
-                className="flex items-center gap-2 text-sm font-medium text-text transition hover:text-primary"
+                className="flex items-center gap-2 text-sm font-medium text-gray-600 transition-colors hover:text-primary"
               >
                 <FaUserCircle className="text-lg text-primary" />
                 {user.name}
               </Link>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-2 rounded-full border-2 border-primary px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary hover:text-white"
+                className="flex items-center gap-2 rounded-xl border border-primary px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white"
               >
                 <FaSignOutAlt /> Logout
               </button>
@@ -132,7 +132,7 @@ function Navbar({ cartCount, user, onLogout }) {
           <Link
             to="/cart"
             onClick={closeMenu}
-            className="relative p-2 text-text"
+            className="relative p-2 text-gray-600"
             aria-label="Cart"
           >
             <FaShoppingCart className="text-xl" />
@@ -143,7 +143,7 @@ function Navbar({ cartCount, user, onLogout }) {
             )}
           </Link>
           <button
-            className="text-2xl text-primary"
+            className="text-xl text-gray-700"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -154,16 +154,16 @@ function Navbar({ cartCount, user, onLogout }) {
 
       {/* Mobile dropdown menu */}
       {isOpen && (
-        <div className="border-t bg-white px-4 py-4 md:hidden">
-          <ul className="flex flex-col gap-3">
+        <div className="border-t border-gray-100 bg-white px-4 py-4 md:hidden">
+          <ul className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <li key={link.name}>
                 <NavLink
                   to={link.path}
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    `block py-2 text-base font-medium transition-colors hover:text-primary ${
-                      isActive ? "text-primary" : "text-text"
+                    `block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-gray-50 hover:text-primary ${
+                      isActive ? "text-primary bg-primary/5" : "text-gray-700"
                     }`
                   }
                 >
@@ -179,8 +179,8 @@ function Navbar({ cartCount, user, onLogout }) {
                   to="/orders"
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    `block py-2 text-base font-medium transition-colors hover:text-primary ${
-                      isActive ? "text-primary" : "text-text"
+                    `block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-gray-50 hover:text-primary ${
+                      isActive ? "text-primary bg-primary/5" : "text-gray-700"
                     }`
                   }
                 >
@@ -190,20 +190,20 @@ function Navbar({ cartCount, user, onLogout }) {
             )}
 
             {/* Mobile auth section */}
-            <li className="mt-2 flex flex-col gap-3">
+            <li className="mt-3 flex flex-col gap-2 border-t border-gray-100 pt-3">
               {user ? (
                 <>
                   <Link
                     to="/profile"
                     onClick={closeMenu}
-                    className="flex items-center gap-2 py-2 text-base font-medium text-text"
+                    className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
                   >
                     <FaUserCircle className="text-primary text-lg" />
                     {user.name}
                   </Link>
                   <button
                     onClick={handleLogout}
-                    className="flex items-center justify-center gap-2 rounded-full border-2 border-primary py-2.5 text-sm font-medium text-primary"
+                    className="flex items-center justify-center gap-2 rounded-xl border border-primary py-2.5 text-sm font-medium text-primary hover:bg-primary hover:text-white transition-colors"
                   >
                     <FaSignOutAlt /> Logout
                   </button>

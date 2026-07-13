@@ -8,14 +8,14 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 // - onDecrease: function called when - is clicked
 function QuantityButton({ quantity, onIncrease, onDecrease }) {
   return (
-    <div className="flex items-center gap-3 rounded-full border border-gray-200 bg-white px-2 py-1">
+    <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-2 py-1">
       {/* Minus button */}
       <button
         onClick={onDecrease}
-        className="flex h-7 w-7 items-center justify-center rounded-full text-primary transition hover:bg-primary/10 active:scale-90"
+        className="flex h-6 w-6 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary/10"
         aria-label="Decrease quantity"
       >
-        <FaMinus className="text-xs" />
+        <FaMinus className="text-[10px]" />
       </button>
 
       {/* Current quantity */}
@@ -26,10 +26,10 @@ function QuantityButton({ quantity, onIncrease, onDecrease }) {
       {/* Plus button */}
       <button
         onClick={onIncrease}
-        className="flex h-7 w-7 items-center justify-center rounded-full text-primary transition hover:bg-primary/10 active:scale-90"
+        className="flex h-6 w-6 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary/10"
         aria-label="Increase quantity"
       >
-        <FaPlus className="text-xs" />
+        <FaPlus className="text-[10px]" />
       </button>
     </div>
   );

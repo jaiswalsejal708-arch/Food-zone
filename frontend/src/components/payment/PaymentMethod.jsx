@@ -30,30 +30,30 @@ function PaymentMethod({ method, selected, onSelect }) {
   return (
     <button
       onClick={onSelect}
-      className={`flex items-center gap-3 rounded-2xl border-2 p-4 text-left transition-all duration-300 active:scale-[0.98] ${
+      className={`flex items-center gap-3 rounded-xl border px-4 py-3.5 text-left transition-colors duration-200 ${
         selected
-          ? "border-primary bg-primary/5 shadow-soft"
-          : "border-gray-200 bg-white hover:border-primary/40 hover:shadow-soft"
+          ? "border-primary bg-primary/5"
+          : "border-gray-200 bg-white hover:border-gray-300"
       }`}
     >
       {/* Icon circle */}
       <div
-        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${
+        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${
           selected ? "bg-primary text-white" : "bg-background text-primary"
         }`}
       >
-        <Icon className="text-lg" />
+        <Icon className="text-sm" />
       </div>
 
       {/* Name + description */}
       <div>
-        <h3 className="font-semibold text-text">{method.name}</h3>
-        <p className="text-xs text-gray-500">{method.description}</p>
+        <h3 className="text-xs font-semibold text-text">{method.name}</h3>
+        <p className="text-[10px] text-gray-500">{method.description}</p>
       </div>
 
       {/* Selected check indicator */}
       {selected && (
-        <div className="ml-auto h-5 w-5 rounded-full bg-primary text-white flex items-center justify-center text-[10px]">
+        <div className="ml-auto h-4 w-4 rounded-full bg-primary text-white flex items-center justify-center text-[9px] font-bold">
           ✓
         </div>
       )}

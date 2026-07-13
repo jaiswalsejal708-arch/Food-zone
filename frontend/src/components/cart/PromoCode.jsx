@@ -44,8 +44,8 @@ function PromoCode({ onApply, onRemove }) {
   return (
     <div className="rounded-xl border border-dashed border-gray-300 bg-white p-4">
       <div className="flex items-center gap-2">
-        <FaTag className="text-primary" />
-        <h3 className="font-semibold text-text">Apply Promo Code</h3>
+        <FaTag className="text-primary text-sm" />
+        <h3 className="text-sm font-semibold text-text">Apply Promo Code</h3>
       </div>
 
       {/* Input + button row */}
@@ -56,14 +56,14 @@ function PromoCode({ onApply, onRemove }) {
           onChange={(e) => setCode(e.target.value)}
           disabled={applied}
           placeholder="Enter promo code"
-          className="w-full rounded-lg border border-gray-200 px-4 py-2 text-sm outline-none focus:border-primary disabled:bg-gray-50"
+          className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/10 disabled:bg-gray-50"
         />
 
         {applied ? (
           // Show Remove button when a code is applied
           <button
             onClick={handleRemove}
-            className="shrink-0 rounded-lg bg-gray-100 px-5 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-200"
+            className="shrink-0 rounded-xl bg-gray-100 px-5 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
           >
             Remove
           </button>
@@ -71,7 +71,7 @@ function PromoCode({ onApply, onRemove }) {
           // Show Apply button otherwise
           <button
             onClick={handleApply}
-            className="shrink-0 rounded-lg bg-primary px-5 py-2 text-sm font-medium text-white transition hover:bg-[#c42f3b]"
+            className="shrink-0 rounded-xl bg-primary px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#c42f3b]"
           >
             Apply
           </button>
@@ -80,18 +80,18 @@ function PromoCode({ onApply, onRemove }) {
 
       {/* Success or error message */}
       {applied && (
-        <p className="mt-2 flex items-center gap-1 text-sm text-green-600">
-          <FaCheck /> Code applied successfully!
+        <p className="mt-2 flex items-center gap-1 text-xs text-green-600">
+          <FaCheck className="text-[10px]" /> Code applied successfully!
         </p>
       )}
-      {error && <p className="mt-2 text-sm text-primary">{error}</p>}
+      {error && <p className="mt-2 text-xs text-primary">{error}</p>}
 
       {/* Show available codes as hints */}
       <div className="mt-3 flex flex-wrap gap-2">
         {promoCodes.map((p) => (
           <span
             key={p.code}
-            className="rounded-full bg-background px-3 py-1 text-xs text-gray-500"
+            className="rounded-full bg-background px-3 py-1 text-[10px] font-medium text-gray-500"
           >
             {p.code} - {p.label}
           </span>

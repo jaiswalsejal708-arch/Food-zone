@@ -30,28 +30,32 @@ function SimpleRegister() {
   };
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '400px', margin: '50px auto', border: '1px solid #ccc', borderRadius: '8px' }}>
-      <h2>Simple User Registration</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="mx-auto my-12 max-w-sm rounded-xl border border-gray-100 bg-white p-8 shadow-soft">
+      <h2 className="text-lg font-bold text-text mb-6 text-center">Simple User Registration</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
         <input 
           placeholder="Name" 
           value={name} 
           onChange={e => setName(e.target.value)} 
-          style={{ display: 'block', width: '100%', marginBottom: '1rem', padding: '0.5rem' }} 
+          className="input-field" 
         />
         <input 
           placeholder="Email" 
           type="email" 
           value={email} 
           onChange={e => setEmail(e.target.value)} 
-          style={{ display: 'block', width: '100%', marginBottom: '1rem', padding: '0.5rem' }} 
+          className="input-field" 
         />
-        <button type="submit" disabled={loading} style={{ padding: '0.5rem 1rem', cursor: 'pointer' }}>
+        <button 
+          type="submit" 
+          disabled={loading} 
+          className="btn-primary w-full"
+        >
           {loading ? 'Submitting...' : 'Register'}
         </button>
       </form>
-      {message && <p style={{ color: 'green', marginTop: '1rem' }}>{message}</p>}
-      {error && <p style={{ color: 'red', marginTop: '1rem' }}>{error}</p>}
+      {message && <p className="mt-4 text-center text-xs text-green-600 font-medium">{message}</p>}
+      {error && <p className="mt-4 text-center text-xs text-primary font-medium">{error}</p>}
     </div>
   );
 }

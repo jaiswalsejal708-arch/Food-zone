@@ -22,16 +22,16 @@ function Button({
 }) {
   // Choose classes based on the variant
   const base =
-    "inline-flex items-center justify-center gap-2 font-medium rounded-full px-6 py-2.5 transition-all duration-300 active:scale-95";
+    "inline-flex items-center justify-center gap-2 font-medium rounded-xl px-5 py-2.5 text-sm transition-colors duration-200 disabled:opacity-60";
 
   const variants = {
     // Solid red button
-    primary: "bg-primary text-white hover:bg-[#c42f3b] shadow-soft hover:shadow-hover",
+    primary: "bg-primary text-white hover:bg-[#c42f3b]",
     // Outlined button
     outline:
-      "border-2 border-primary text-primary bg-white hover:bg-primary hover:text-white",
+      "border border-primary text-primary bg-white hover:bg-primary hover:text-white",
     // Light/transparent button
-    ghost: "bg-white/90 text-text hover:bg-white shadow-soft",
+    ghost: "bg-white text-text hover:bg-gray-50 shadow-soft",
   };
 
   const classes = `${base} ${variants[variant]} ${className}`;
