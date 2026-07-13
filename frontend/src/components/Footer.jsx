@@ -98,9 +98,14 @@ function Footer() {
           <p>&copy; {year} {APP_NAME}. All rights reserved.</p>
           <p className="mt-2">
             Designed and developed by{" "}
-            <span className="text-primary font-medium">
+            <a
+              href="https://www.linkedin.com/in/sejal-jaiswal-3a2148328/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-primary font-medium transition-colors hover:text-accent"
+            >
               Sejal Jaiswal
-            </span>
+            </a>
           </p>
         </div>
       </div>
